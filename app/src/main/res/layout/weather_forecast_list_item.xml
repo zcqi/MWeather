@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="forecast"
+            type="com.example.zhangzhao.mweather.model.ForecastDataEnvelope" />
+        <import type="com.example.zhangzhao.mweather.util.TemperatureFormatter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/day"
+            style="@style/text_weather"
+            android:layout_weight="3"
+            android:text="@{forecast.dtString}" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/text_weather"
+            android:layout_weight="5"
+            android:text="@{forecast.weather[0].description}" />
+
+        <TextView
+            android:id="@+id/maximum_temperature"
+            style="@style/text_weather"
+            android:layout_weight="1"
+            android:text="@{TemperatureFormatter.format(forecast.temp.max)}" />
+
+        <TextView
+            android:id="@+id/minimum_temperature"
+            style="@style/text_weather"
+            android:layout_weight="1"
+            android:text="@{TemperatureFormatter.format(forecast.temp.min)}" />
+
+    </LinearLayout>
+</layout>

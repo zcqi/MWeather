@@ -1,0 +1,54 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="current"
+            type="com.example.zhangzhao.mweather.model.CurrentWeatherDataEnvelope" />
+
+        <import type="com.example.zhangzhao.mweather.util.TemperatureFormatter" />
+    </data>
+
+    <!-- Container enforces relative positioning of header and list of forecasts -->
+    <LinearLayout
+        android:id="@+id/weather_container_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/location_name"
+                style="@style/text_weather_large"
+                android:text="@{current.name}"
+                android:textColor="@color/city" />
+
+            <TextView
+                android:id="@+id/current_temperature"
+                style="@style/text_weather_large"
+                android:text="@{TemperatureFormatter.format(current.main.temp)}"
+                android:textColor="@color/temp" />
+
+        </LinearLayout>
+
+        <!-- Forecasts -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/weather_forecast_list"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+    <!-- Footer -->
+
+
+</layout>
