@@ -62,6 +62,9 @@ public class SearchActivity extends AppCompatActivity {
                             Log.i("SearchActivity",city.cod+"");
                             adapter.setLocationList(city.list);
                             adapter.notifyDataSetChanged();
+                        },
+                        error->{
+                            error.printStackTrace();
                         }
                 );
     }
