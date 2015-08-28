@@ -4,7 +4,7 @@
 Rxjava，响应式编程，处理异步任务非常给力！
 ### 实现功能
 - 查看本地天气
-- 搜索城市
+- 搜索城市(即时搜索)
 - 查看某个城市的天气
 
 >使用[高德定位sdk](http://lbs.amap.com/)，[openweather](http://openweathermap.org/api)api
